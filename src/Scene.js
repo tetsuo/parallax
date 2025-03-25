@@ -46,7 +46,9 @@ export default class Scene {
 
   // Hook into scroll event using requestAnimationFrame for smoothness
   bindToScroll() {
-    if (this._boundScrollHandler) return
+    if (this._boundScrollHandler) {
+      return
+    }
 
     this._boundScrollHandler = () => {
       if (!this._ticking) {
