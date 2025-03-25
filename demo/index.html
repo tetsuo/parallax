@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+  <head>
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        height: auto;
+        min-height: 100vh;
+        overflow-x: hidden;
+      }
+      #layer1,
+      #layer2 {
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        top: 0;
+        left: 0;
+      }
+      #layer1 {
+        background: url('https://raw.githubusercontent.com/cyntss/Parallax-img-scroll/master/demo/img/assassins/bg.jpg') no-repeat center center;
+        background-size: cover;
+      }
+      #layer2 {
+        background: url('https://raw.githubusercontent.com/cyntss/Parallax-img-scroll/master/demo/img/assassins/003.png') no-repeat center center;
+        background-size: cover;
+      }
+      #layer2 {
+        margin-top: 440px;
+      }
+      #layer1 {
+        height: 140vh;
+      }
+      /* hint to the browser that transforms are coming */
+      #layer1,
+      #layer2 {
+        will-change: transform;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="layer1"></div>
+    <div id="layer2"></div>
+
+    <script type="module">
+      import { DisplayObject, Layer, Scene } from 'https://esm.sh/gh/tetsuo/parallax'
+
+      function adjustLayerHeightForScroll(scene, layer) {
+        const rate = scene.getVerticalScrollRate(layer)
+        const maxScroll = document.documentElement.scrollHeight - window.innerHeight
+        const visualOffset = maxScroll * rate
+
+        const el = layer.model.element
+        el.style.height = `calc(100vh + ${visualOffset}px)`
+      }
+
+      document.addEventListener('DOMContentLoaded', () => {
+        const el1 = document.getElementById('layer1')
+        const el2 = document.getElementById('layer2')
+
+        const scene = new Scene(1, 0.5)
+        scene.addElement(el1, 1)
+        scene.addElement(el2, 2.2)
+        scene.bindToScroll()
+
+        // Ensure the layer with lowest zDepth is tall enough to fully cover the background layer:
+        const layerWithGreatestOffset = scene.layers.reduce((acc, layer) =>
+          scene.getVerticalScrollRate(layer) > scene.getVerticalScrollRate(acc) ? layer : acc
+        )
+
+        adjustLayerHeightForScroll(scene, layerWithGreatestOffset)
+
+        window.addEventListener('resize', () => {
+          adjustLayerHeightForScroll(scene, layerWithGreatestOffset)
+        })
+      })
+    </script>
+  </body>
+</html>
