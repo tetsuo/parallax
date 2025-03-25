@@ -5,8 +5,8 @@
   "main": "./src/index.js",
   "type": "module",
   "scripts": {
-    "cjs-build": "rimraf build/lib && rollup src/index.js --format cjs --preserveModules --dir build/lib",
-    "es6-build": "rimraf build/es6 && rollup src/index.js --format es --preserveModules --dir build/es6",
+    "cjs-build": "rimraf build/index.cjs && rollup src/index.js --format cjs --file build/index.cjs",
+    "es6-build": "rimraf build/lib && rollup src/index.js --format es --preserveModules --dir build/lib",
     "umd-build": "rimraf dist/parallax.umd.min.js && rollup src/index.js --format umd --output.name parallax --plugin terser --file dist/parallax.umd.min.js",
     "build": "npm run cjs-build && npm run es6-build",
     "lint": "eslint src",

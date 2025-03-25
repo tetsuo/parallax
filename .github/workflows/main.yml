@@ -97,8 +97,8 @@ jobs:
 
           cat <<EOF > build/exports.json
           {
-            "main": "./lib/index.js",
-            "module": "./es6/index.js"
+            "main": "./index.cjs",
+            "module": "./lib/index.js"
           }
           EOF
 
