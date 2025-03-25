@@ -1,7 +1,7 @@
 import Layer from './Layer.js'
 import DisplayObject from './DisplayObject.js'
 
-// Manages layers, updates them on scroll, and calculates movement rates.
+// Scene: manages layers, updates them on scroll, and calculates movement rates.
 export default class Scene {
   constructor(xSpeed = 1, ySpeed = 0.5) {
     this.layers = []
@@ -44,7 +44,7 @@ export default class Scene {
     })
   }
 
-  // Hook into scroll event using requestAnimationFrame for smoothness
+  // Hook into scroll event using requestAnimationFrame
   bindToScroll() {
     if (this._boundScrollHandler) {
       return

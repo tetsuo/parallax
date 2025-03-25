@@ -1,4 +1,4 @@
-// A lightweight wrapper around a DOM element that supports 2D transform-based movement.
+// DisplayObject: Wrapper around a DOM element that supports 2D transform-based movement.
 export default class DisplayObject {
   constructor(element) {
     this.element = element
@@ -16,7 +16,6 @@ export default class DisplayObject {
     this._x = value
     this._applyTransform()
   }
-
   get y() {
     return this._y
   }

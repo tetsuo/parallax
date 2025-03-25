@@ -1,5 +1,4 @@
-// Represents a layer in the parallax scene.
-// Wraps a DisplayObject and applies movement scaled by zDepth.
+// Layer: Wrapper around a DisplayObject that applies movement scaled by zDepth.
 export default class Layer {
   constructor(model, zDepth) {
     this.model = model

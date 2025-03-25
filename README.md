@@ -1,13 +1,33 @@
 # parallax
 
-Simple, unopinionated parallax scene implementation for layering DOM elements by depth.
+Simple parallax scrolling using 2D transforms.
 
-👉 [**Demo**](https://tetsuo.github.io/parallax/)
+[View demo](https://tetsuo.github.io/parallax/)
 
 ## Installation
 
-```
+### npm
+
+```bash
 npm install @tetsuo/parallax
+```
+
+### ES Modules
+
+Import directly in the browser using [esm.sh](https://esm.sh):
+
+```html
+<script type="module">
+  import * as parallax from 'https://esm.sh/gh/tetsuo/parallax'
+</script>
+```
+
+### UMD
+
+Load via [jsDelivr](https://www.jsdelivr.com/) - the global export is `parallax`:
+
+```html
+<script src="https://cdn.jsdelivr.net/gh/tetsuo/parallax/dist/parallax.umd.min.js"></script>
 ```
 
 ## Usage
@@ -44,7 +64,7 @@ const el2 = document.getElementById('layer2')
 const scene = new Scene(1, 0.5) // xSpeed, ySpeed
 
 scene.addElement(el1, 1) // zDepth 1 (foreground)
-scene.addElement(el2, 2.5) // zDepth 2.5 (slower background)
+scene.addElement(el2, 2.5) // zDepth 2.5 (background)
 
 scene.bindToScroll()
 ```
