@@ -28,9 +28,7 @@ Style your layers:
 Attach elements to scroll-driven layers with custom z-depth:
 
 ```js
-import DisplayObject from './DisplayObject.js'
-import Layer from './Layer.js'
-import Scene from './Scene.js'
+import { DisplayObject, Layer, Scene } from 'https://esm.sh/gh/tetsuo/parallax'
 
 const el1 = document.getElementById('layer1')
 const el2 = document.getElementById('layer2')
