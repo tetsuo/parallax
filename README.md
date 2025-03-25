@@ -2,6 +2,14 @@
 
 Simple, unopinionated parallax scene implementation for layering DOM elements by depth.
 
+👉 [**Demo**](https://tetsuo.github.io/parallax/)
+
+## Installation
+
+```
+npm install @tetsuo/parallax
+```
+
 ## Usage
 
 Structure your HTML. Each element represents a visual layer:
